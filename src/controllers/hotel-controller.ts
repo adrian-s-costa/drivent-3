@@ -5,7 +5,7 @@ import httpStatus from "http-status";
 
 export async function getHotels(req: AuthenticatedRequest, res: Response) {
   try {
-    const userId = 2;
+    const { userId } = req;
     const hotels = await hotelService.getHotels(userId);
     return res.send(hotels).sendStatus(200);
   } catch (error) {
